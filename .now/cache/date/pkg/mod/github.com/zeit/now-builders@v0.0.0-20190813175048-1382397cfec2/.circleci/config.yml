@@ -1,0 +1,36 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/repo
+    environment:
+      GOPATH: $HOME/go
+    steps:
+      - checkout
+      - run:
+          name: Updating apt-get list
+          command: sudo apt-get update
+      - run:
+          name: Installing the latest version of Go
+          command: sudo apt-get install golang-go
+      - run:
+          name: Installing dependencies
+          command: yarn install
+      - run:
+          name: Bootstrapping
+          command: yarn bootstrap
+      - run:
+          name: Building
+          command: ./.circleci/build.sh
+      - run:
+          name: Linting
+          command: yarn lint
+      - run:
+          name: Tests and Coverage
+          command: yarn test-coverage
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - build

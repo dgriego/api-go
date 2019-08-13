@@ -1,0 +1,17 @@
+/tmp/*
+/node_modules/*
+/**/node_modules/*
+/packages/now-go/go/*
+/packages/now-build-utils/dist/*
+/packages/now-build-utils/src/*.js
+/packages/now-build-utils/src/fs/*.js
+/packages/now-node/dist/*
+/packages/now-next/dist/*
+/packages/now-next/test/fixtures/**
+/packages/now-node-bridge/*
+/packages/now-python/dist/*
+/packages/now-go/*
+/packages/now-ruby/dist/*
+/packages/now-static-build/dist/*
+/packages/now-static-build/test/fixtures/**
+/packages/now-routing-utils/dist/*
